@@ -7,4 +7,15 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-module.exports = router;
+const routes = [
+  'contacts',
+  'users',
+]
+
+module.exports = (app) => {
+  app.use('/', router);
+  for (let routeName of routes) {
+    const route = require(`./${routeName}`)
+    app.use(`/${routeName}`, route)
+  }
+}

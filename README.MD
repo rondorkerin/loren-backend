@@ -1,3 +1,5 @@
+https://devhints.io/knex
+
 # Boilerplate for a knex CRUD app
 
 ## _important:_ The commands for all these steps are at the bottom if you don't know them.
