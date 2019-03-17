@@ -4,7 +4,13 @@
   "private": true,
   "scripts": {
     "start": "cp .env.prod .env && node ./bin/www",
-    "dev": "cp .env.dev .env && node ./bin/www"
+    "migrate": "cp .env.prod .env && knex migrate:latest --env production",
+    "rollback": "cp .env.prod .env && knex migrate:rollback --env production",
+    "seed": "cp .env.prod .env && knex seed:run --env production",
+    "dev": "cp .env.dev .env && node ./bin/www",
+    "dev-migrate": "cp .env.dev .env && knex migrate:latest",
+    "dev-rollback": "cp .env.dev .env && knex migrate:rollback",
+    "dev-seed": "cp .env.dev .env && knex seed:run"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
